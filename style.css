@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("https://c.wallhere.com/photos/cd/34/digital_art_fantasy_art_animals_deer_nature_landscape_trees_water-66620.jpg!d");
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+
+}
+ul {
+  list-style: none;
+  display: flex;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+/* .main-container {
+  background-image: url("https://c.wallhere.com/photos/cd/34/digital_art_fantasy_art_animals_deer_nature_landscape_trees_water-66620.jpg!d");
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+} */
+.logo {
+  color: #ffffff;
+  font-weight: 600;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.nav-links a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 20px;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 6px;
+  left: 0;
+  bottom: -6px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform.5s;
+}
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.nav-links button {
+  color: #ffffff;
+  font-weight: 600;
+  margin-left: 60px;
+  background: transparent;
+  padding: 5px 15px;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.nav-links button:hover {
+  background: #ffffff;
+  color: darkolivegreen;
+}
+.nav-links li {
+  padding-top: 5px;
+}
