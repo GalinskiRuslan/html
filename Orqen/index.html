@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
+    <title>Orken</title>
+    <link rel="icon" type="image/png" href="./assets/img/icons/favfav.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="modal-city" id="modal-city">
+        <div class="modal-city-content" id="chngeCity">
+          <div>
+            <p>Ваш город <span id="yourCity"></span> ?</p>
+          </div>
+          <div class="modal-btns">
+            <button id="cityYes">Да</button
+            ><button class="no" id="cityNo">Нет</button>
+          </div>
+        </div>
+        <div class="modal-city-list" id="cityList">
+          <button class="closemodal-btn" onclick="closeModal()">X</button>
+          <p>Укажите из какого вы города или населённого пункта</p>
+          <ul>
+            <li class="cityes">Алматы</li>
+            <li class="cityes">Астана</li>
+            <li class="cityes">Шымкент</li>
+          </ul>
+        </div>
+        <div class="city_overlay" id="dark-back"></div>
+      </div>
+      <header>
+        <nav>
+          <div class="header-flex">
+            <a href="./index.html"
+              ><img
+                class="header-logo"
+                src="./assets/img/Orqenlogo1.png"
+                alt="logo"
+            /></a>
+            <div class="header-geo" id="geoBTN">
+              <img src="./assets/img/location-outline.png" />
+              <span id="geo"></span>
+              <div class="city-list"></div>
+            </div>
+          </div>
+
+          <ul class="header-flex nav-links">
+            <li><a href="#" class="active">Главная</a></li>
+            <li><a href="./about.html">О нас</a></li>
+            <li><a href="./product.html">Продукты</a></li>
+            <li><a href="./news.html">Новости</a></li>
+            <li><a href="./help.html">Помощь</a></li>
+          </ul>
+
+          <div class="localization-btns">
+            <!-- <button class="active">RU</button>
+            <button>KZ</button> -->
+          </div>
+        </nav>
+      </header>
+      <div class="header-mob text-end">
+        <button id="menubtn" class="mob-menu-btn">
+          <img src="./assets/img/icons/icons8-menu-48.png" />
+        </button>
+        <div class="menu-items" id="menuItems">
+          <a href="index.html">
+            <img class="menu-items-logo" src="./assets/img/Orqenlogo1.png" />
+          </a>
+          <div class="menu-item">
+            <ul>
+              <ul class="nav-links-mob">
+                <li><a href="#" class="active">Главная</a></li>
+                <li><a href="./about.html">О нас</a></li>
+                <li><a href="./product.html">Продукты</a></li>
+                <li><a href="./news.html">Новости</a></li>
+                <li><a href="./help.html">Помощь</a></li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+        <div class="burger-menu_overlay" id="darkMenu"></div>
+      </div>
+      <main>
+        <div class="top-container">
+          <div class="top-container2">
+            <div>
+              <h3>
+                Беззалоговое кредитование<br />
+                для малых и средних предприятий
+              </h3>
+              <p>
+                Получите кредит без обеспечения<br />
+                и дополнительных залогов
+              </p>
+              <ul>
+                <li>От 1 000 000 ₸</li>
+                <li>До 365 дней</li>
+              </ul>
+              <button onclick="openF()">Получить</button>
+            </div>
+            <img src="./assets/img/building-img1.png" />
+          </div>
+        </div>
+        <div class="calc-container">
+          <div class="promo__calc_title">Рассчитайте свой микрокредит</div>
+          <div class="promo__calc">
+            <div class="promo__calc_input">
+              <div class="loan_term">
+                <span>Сумма микрокредита</span>
+                <div class="mnt">
+                  <span class="daysText" id="sumText">0</span>
+                  <span class="mnt daysText">₸</span>
+                </div>
+              </div>
+
+              <input
+                class="range"
+                type="range"
+                name=""
+                id="myinput"
+                min="1000000"
+                max="5000000"
+                step="500000"
+              />
+              <div class="select_bottom">
+                <span id="sumFrom">1 000 000 ₸</span>
+                <span id="sumTo">5 000 000 ₸</span>
+              </div>
+
+              <div class="promo__calc_input2">
+                <div class="select">
+                  <span>Срок микрокредита</span>
+                  <div class="mnt">
+                    <span class="daysText" id="daysText">0</span>
+                    <span class="mnt daysText">мес.</span>
+                  </div>
+                </div>
+                <input
+                  class="range"
+                  type="range"
+                  name=""
+                  id="myinput2"
+                  value="12"
+                  min="3"
+                  max="12"
+                  step="1"
+                />
+                <div class="select_bottom">
+                  <span id="daysFrom">3 мес.</span>
+                  <span id="daysTo">12 мес.</span>
+                </div>
+              </div>
+              <button class="promo__calc_btn" onclick="openF()">
+                Оформить заявку
+              </button>
+            </div>
+            <div class="calc-ret">
+              <div class="loan_term">
+                <span class="calc-mar">Сумма микрокредита</span>
+                <div><span id="sumTextPreview">1 500 000 </span> ₸</div>
+              </div>
+
+              <div class="loan_term">
+                <span class="calc-mar">Переплата</span>
+                <div><span id="overpayment">200 000 </span> ₸</div>
+              </div>
+
+              <div class="return">
+                <span class="calc-mar text-c">Ежемесячный платеж</span>
+                <div class="return-div">
+                  <span id="returnSumText"></span>
+                  <span>₸</span>
+                </div>
+              </div>
+              <div class="gsv">ГЭСВ от 56%</div>
+            </div>
+          </div>
+        </div>
+        <div class="advantages-container">
+          <div class="advantages-innercontainer">
+            <h4>Преимущества</h4>
+            <p class="advantages-margin-b">
+              Добро пожаловать в нашу программу беззалогового кредитования для
+              малых и средних предприятий (МСБ). Мы предоставляем уникальное<br />
+              предложение, которое поможет вам получить кредит без обеспечения и
+              дополнительных залогов. Наша программа беззалогового
+              кредитования<br />
+              МСБ включает в себя следующие преимущества:
+            </p>
+            <div class="grid treetempl">
+              <div class="advantages-item flex">
+                <img src="./assets/img/icons/advanture1.png" />
+                <p class="advantages-p">Без залога</p>
+              </div>
+              <div class="advantages-item flex">
+                <img src="./assets/img/icons/2222.png" />
+                <p class="advantages-p">Низкая процентная ставка</p>
+              </div>
+              <div class="advantages-item flex">
+                <img src="./assets/img/icons/3333.png" />
+                <p class="advantages-p">Кредитуем ИП</p>
+              </div>
+              <div class="advantages-item flex">
+                <img src="./assets/img/icons/4444.png" />
+                <p class="advantages-p">Рассмотрение три дня</p>
+              </div>
+
+              <div class="advantages-item flex">
+                <img src="./assets/img/icons/5555.png" />
+                <p class="advantages-p">Досрочное погашение без штрафов</p>
+              </div>
+              <div class="advantages-item flex">
+                <!--  <img src="./assets/img/icons/6666.png" />
+                <p class="advantages-p">Гарант</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="money-container">
+          <div class="money-inner">
+            <div>
+              <h4>Деньги для вашего бизнеса - в один клик!</h4>
+              <p>
+                Получите кредит без обеспечения<br />
+                и дополнительных залогов
+              </p>
+              <ul>
+                <li>От 1 000 000 ₸</li>
+                <li>До 365 дней</li>
+              </ul>
+              <button class="money-btn" onclick="openF()">Получить</button>
+            </div>
+            <img
+              class="money-inner-img"
+              alt="img"
+              src="./assets/img/girlincostum.png"
+            />
+            <img
+              class="money-inner-img-rec"
+              alt="img"
+              src="./assets/img/icons/round.png"
+            />
+          </div>
+        </div>
+        <h4 class="slider-title">Что о нас говорят наши клиенты</h4>
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-card-text">
+                  <p>
+                    « Я являюсь частным предпринимателем и работаю в сфере
+                    общепита. В апреле текущего года нам понадобились деньги,
+                    чтобы расшириться, и вот тогда, в трудную минуту, на помощь
+                    пришла компания "Orqen.kz". Я очень благодарна им за это и
+                    надеюсь стать постоянным клиентом данной компании.»
+                  </p>
+                </div>
+                <div>
+                  <img
+                    src="./assets/img/comments/fotor_2023-5-11_16_1_35.jpg"
+                    style="max-width: 64px"
+                  />
+                  <p class="review-name">Палымбетова Гули</p>
+                  <p class="review-city">г. Жанаозен</p>
+                </div>
+              </div>
+              <div class="review-card">
+                <div class="review-card-text">
+                  <p>
+                    « Я занимаюсь бизнесом с 2010 года. У меня своё небольшое
+                    семейное кафе и салон красоты. Уже не первый год со своей
+                    командой мы радуем жителей нашего города вкусной едой и
+                    модными прическами. Я люблю свой город, свою работу и свою
+                    команду! Сейчас у нас есть новые идеи для нашего бизнеса, но
+                    чтобы их реализовать, нам нужны были денежные вливания. В
+                    этом нам помогла команда "Orqen.kz". Хотелось бы очень
+                    поблагодарить за то, что оказались рядом в самый нужный
+                    момент и дали нам возможность реализовать наши творческие
+                    идеи в бизнесе. Теперь мы с "Orqen.kz" самые лучшие друзья!»
+                  </p>
+                </div>
+                <div>
+                  <img
+                    src="./assets/img/comments/fotor_2023-5-11_16_10_47.png"
+                    style="max-width: 64px"
+                  />
+                  <p class="review-name">Анар Серкебаева</p>
+                  <p class="review-city">г. Семей</p>
+                </div>
+              </div>
+              <div class="review-card">
+                <div class="review-card-text">
+                  <p>
+                    « Очень давно занимаясь предпринимательской деятельностью, я
+                    часто пользуюсь услугами кредитования МКО и банков. Но в
+                    основном, деньги на бизнес дают под высокие ставки, и ещё
+                    есть комиссии из-за того, что условия без залога. Недавно
+                    мне порекомендовали "Orqen.kz". Я никогда не получала таких
+                    выгодных условий, как в "Orqen.kz": очень низкая процентная
+                    ставка и профессиональные сотрудники! Спасибо "Orqen.kz" за
+                    то, что вы даёте возможность заниматься бизнесом деловым
+                    женщинам Казахстана!»
+                  </p>
+                </div>
+                <div>
+                  <img
+                    src="./assets/img/comments/fotor_2023-5-11_16_16_22.png"
+                    style="max-width: 64px"
+                  />
+                  <p class="review-name">Майгуль Джукебаева</p>
+                  <p class="review-city">г.Семей</p>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-card-text">
+                  <p>
+                    Отличный кредитный продукт! Я был приятно удивлен скоростью
+                    одобрения моей заявки на кредит. Процесс был очень простым и
+                    понятным, я смог легко заполнить все необходимые данные и
+                    получить ответ в течение нескольких минут. Также мне очень
+                    понравилось, что у сайта есть удобный калькулятор, который
+                    помог мне рассчитать свои ежемесячные платежи
+                  </p>
+                </div>
+                <div>
+                  <img src="./assets/img/otziv1.png" />
+                  <p class="review-name">Пьер Эмирик</p>
+                  <p class="review-city">г. Алматы</p>
+                </div>
+              </div>
+              <div class="review-card">
+                <div class="review-card-text">
+                  <p>
+                    Отличный кредитный продукт! Я был приятно удивлен скоростью
+                    одобрения моей заявки на кредит. Процесс был очень простым и
+                    понятным, я смог легко заполнить все необходимые данные и
+                    получить ответ в течение нескольких минут. Также мне очень
+                    понравилось, что у сайта есть удобный калькулятор, который
+                    помог мне рассчитать свои ежемесячные платежи
+                  </p>
+                </div>
+                <div>
+                  <img src="./assets/img/otziv2.png" />
+                  <p class="review-name">Хачатай Гульчатай</p>
+                  <p class="review-city">г. Алматы</p>
+                </div>
+              </div>
+              <div class="review-card">
+                <div class="review-card-text">
+                  <p>
+                    Отличный кредитный продукт! Я был приятно удивлен скоростью
+                    одобрения моей заявки на кредит. Процесс был очень простым и
+                    понятным, я смог легко заполнить все необходимые данные и
+                    получить ответ в течение нескольких минут. Также мне очень
+                    понравилось, что у сайта есть удобный калькулятор, который
+                    помог мне рассчитать свои ежемесячные платежи
+                  </p>
+                </div>
+                <div>
+                  <img src="./assets/img/otziv3.png" />
+                  <p class="review-name">Индира Боранбаева</p>
+                  <p class="review-city">г. Алматы</p>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-card-text">
+                  <p>
+                    Отличный кредитный продукт! Я был приятно удивлен скоростью
+                    одобрения моей заявки на кредит. Процесс был очень простым и
+                    понятным, я смог легко заполнить все необходимые данные и
+                    получить ответ в течение нескольких минут. Также мне очень
+                    понравилось, что у сайта есть удобный калькулятор, который
+                    помог мне рассчитать свои ежемесячные платежи
+                  </p>
+                </div>
+                <div>
+                  <img src="./assets/img/otziv1.png" />
+                  <p class="review-name">Пьер Эмирик</p>
+                  <p class="review-city">г. Алматы</p>
+                </div>
+              </div>
+              <div class="review-card">
+                <div class="review-card-text">
+                  <p>
+                    Отличный кредитный продукт! Я был приятно удивлен скоростью
+                    одобрения моей заявки на кредит. Процесс был очень простым и
+                    понятным, я смог легко заполнить все необходимые данные и
+                    получить ответ в течение нескольких минут. Также мне очень
+                    понравилось, что у сайта есть удобный калькулятор, который
+                    помог мне рассчитать свои ежемесячные платежи
+                  </p>
+                </div>
+                <div>
+                  <img src="./assets/img/otziv2.png" />
+                  <p class="review-name">Хачатай Гульчатай</p>
+                  <p class="review-city">г. Алматы</p>
+                </div>
+              </div>
+              <div class="review-card">
+                <div class="review-card-text">
+                  <p>
+                    Отличный кредитный продукт! Я был приятно удивлен скоростью
+                    одобрения моей заявки на кредит. Процесс был очень простым и
+                    понятным, я смог легко заполнить все необходимые данные и
+                    получить ответ в течение нескольких минут. Также мне очень
+                    понравилось, что у сайта есть удобный калькулятор, который
+                    помог мне рассчитать свои ежемесячные платежи
+                  </p>
+                </div>
+                <div>
+                  <img src="./assets/img/otziv3.png" />
+                  <p class="review-name">Индира Боранбаева</p>
+                  <p class="review-city">г. Алматы</p>
+                </div>
+              </div>
+            </div> -->
+            ...
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+        </div>
+        <div class="fast-container">
+          <div>
+            <h4>Быстрый и удобный кредит</h4>
+            <p>
+              Мы гарантируем быстрое одобрение вашей заявки на кредит, чтобы вы
+              могли получить деньги в течение нескольких дней. Вы можете
+              получить кредит без обеспечения, что поможет вам избежать рисков,
+              связанных с потерей имущества
+            </p>
+            <button class="money-btn" onclick="openF()">Получить</button>
+          </div>
+          <img src="./assets/img/bank.png" alt="bank" />
+        </div>
+        <div class="news-container">
+          <h3 class="news-title">Новости</h3>
+          <div class="flex">
+            <div class="news-card">
+              <div class="news-white">
+                <img
+                  style="
+                    border-radius: 30px;
+                    margin-left: 19px;
+                    margin-top: 15px;
+                    width: 90%;
+                  "
+                  src="./assets/img/news/мы открылись 135.jpg"
+                  alt="img"
+                  class="news-img"
+                />
+
+                <p class="news-data">12.05.2023</p>
+                <p class="news-subtitle">Открытие проекта Orqen</p>
+                <p class="news-text">
+                  Компания PROcredit рада сообщить о открытии проекта Orqen и
+                  готовности начать работу с малым и средним бизнесом!
+                </p>
+                <a href="./news/testNews.html"
+                  ><button class="money-btn" style="margin-left: 20px">
+                    Подробнее
+                  </button></a
+                >
+              </div>
+            </div>
+            <!-- <div class="news-card">
+              <div class="news-white">
+                <img
+                  src="./assets/img/news/sec.png"
+                  alt="img"
+                  class="news-img"
+                />
+                <p class="news-data">27.03.2023</p>
+                <p class="news-subtitle">Инновационные методы управления</p>
+                <p class="news-text">
+                  Значимость этих проблем настолько очевидна, что постоянное
+                  информационно-пропагандистское обеспечение нашей...
+                </p>
+                <button class="money-btn" style="margin-left: 20px">
+                  Подробнее
+                </button>
+              </div>
+            </div>
+            <div class="news-card">
+              <div class="news-white">
+                <img
+                  src="./assets/img/news/tree.png"
+                  alt="img"
+                  class="news-img"
+                />
+                <p class="news-data">27.03.2023</p>
+                <p class="news-subtitle">Инновационные методы управления</p>
+                <p class="news-text">
+                  Значимость этих проблем настолько очевидна, что постоянное
+                  информационно-пропагандистское обеспечение нашей...
+                </p>
+                <button class="money-btn" style="margin-left: 20px">
+                  Подробнее
+                </button>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <!-- <div class="services-container">
+          <h4 class="services-title">Услуги Orken</h4>
+          <p>
+            Наша компания специализируется на микрокредитовании в следующих
+            направлениях:
+          </p>
+          <br />
+          <ul>
+            <li>Выдача микрокредита под залог легкового автомобиля.</li>
+            <br />
+
+            <li>Выдача денег под залог коммерческих авто.</li>
+            <br />
+
+            <li>Автозалог остается у вас в управлении.</li>
+            <br />
+
+            <li>
+              Рефинансирование. Выдача нового микрокредита для погашения
+              существующего в иной финансовой организации. Это надежный способ
+              снизить проценты, изменить срок и уменьшить переплату или получить
+              большую сумму под залог того же авто.<br />
+              Компания R-Finance готова выдать микрокредит в сумме до 75%
+              рыночной стоимости машины. Заложить можно автомобили различных
+              марок и моделей.
+            </li>
+          </ul>
+          <h4 class="services-title" style="margin-top: 60px">
+            Почему стоит выбирать Orken
+          </h4>
+          <p>
+            Наша компания — лицензированная микрофинансовая организация в
+            Казахстане. Мы работаем в соответствии с законом. Наши главные
+            преимущества:
+          </p>
+          <br />
+          <ul>
+            <li>
+              Быстрое оформление договора. Получение денег в течение часа.
+            </li>
+            <br />
+            <li>Отсутствие каких-либо комиссий.</li>
+            <br />
+            <li>Отсутствие страхования КАСКО на залог.</li>
+            <br />
+            <li>
+              Возможность погашения суммы полученного микрокредита в конце
+              срока.
+            </li>
+            <br />
+            <li>
+              Получение средств наличными, на карту или на расчетный счет.
+            </li>
+            <br />
+            <li>
+              Минимальное количество документов — удостоверение личности и
+              техпаспорт. Состоящим в браке людям дополнительно потребуется
+              нотариально заверенное согласие супруга.
+            </li>
+            <br />
+            <li>Рассматриваем заявки 24/7.</li>
+            <br />
+            <li>Не нужен поручитель или гарант.</li>
+            <br />
+            <li>Ваша кредитная история не влияет на вероятность одобрения.</li>
+            <br />
+            <li>
+              У нас есть сеть офисов во всех областях Казахстана — один из них
+              наверняка расположен рядом с вами.
+            </li>
+            <br />
+            Главная причина оформить кредит или микрокредит в нашей компании —
+            быстрое оформление документов и практически моментальная выдача.
+            Осмотр автотранспорта проходит на месте бесплатно, нет необходимости
+            отправлять его на стоянку. Для оформления микрокредита оставьте
+            заявку на сайте компании или позвонить в контакт-центр компании по
+            короткому номеру +7 (700) 836 98 15. Онлайн-форма доступна
+            круглосуточно. Если вы оставили заявку ночью, наш сотрудник
+            перезвонит вам на следующий день. Для заключения договора достаточно
+            посетить один из наших офисов в вашем городе. Рекомендуем
+            ознакомиться со списком всех наших офисов, чтобы найти удобный
+            вариант рядом с вами.
+          </ul>
+        </div> -->
+        <div class="contacts-container">
+          <h4 class="contacts-title">Контакты</h4>
+          <div class="flex">
+            <div class="contacts-card">
+              <img src="./assets/img/icons/greenphone.png" />
+              <p><a href="tel:+7 771-713-90-02">+7 771-713-90-02</a></p>
+            </div>
+            <!--  <div class="contacts-card">
+              <img src="./assets/img/icons/green-geo.png" />
+              <p>
+                <a
+                  target="_blank"
+                  href="https://www.google.com/maps/place/%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%9A%D1%83%D0%BD%D0%B0%D0%B5%D0%B2%D0%B0+38,+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B+050000/43.2650006,76.9482746,18.5z/data=!4m6!3m5!1s0x38836e9bbef2ad63:0x894ae3f2b8acd0f6!8m2!3d43.2648998!4d76.948732!16s%2Fg%2F11ts_xsnvn?hl=ru-KG"
+                  >г.Алматы ул. Кунаева 38 БЦ “Жар су”</a
+                >
+              </p>
+            </div> -->
+            <div class="contacts-card">
+              <img src="./assets/img/icons/greenmail.png" />
+              <p><a href="mailto:info@orqen.kz">info@orqen.kz</a></p>
+            </div>
+          </div>
+          <div class="map">
+            <div id="map" class="yanmap" style="width: 100%"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer>
+      <div class="footer-container">
+        <div>
+          <a href="#"
+            ><img
+              class="header-logo"
+              src="./assets/img/Orqenlogo1.png"
+              alt="logo"
+          /></a>
+          <div>
+            <ul class="footer-list">
+              <li><a href="/about.html">О нас</a></li>
+              <li><a href="/product.html">Продукты</a></li>
+              <li><a href="/news.html">Новости</a></li>
+              <li><a href="/help.html">Помощь</a></li>
+            </ul>
+            <p class="footer-text">
+              ТОО «МФО «PROcredit», Лицензия на осуществление микрофинансовой
+              деятельности<br />
+              No 02.23.0002. М от 02.02.2023 года, выдана Управлением
+              региональных<br />
+              представителей в городе Алматы Агентства Республики Казахстан<br />
+              по регулированию и развитию финансового рынка
+            </p>
+          </div>
+        </div>
+        <!-- <div class="footer-right">
+          <p>Мы в соц сетях</p>
+          <img
+            src="./assets/img/icons/footer/twit.png"
+            alt="tvitter"
+            style="margin-right: 25px"
+          /><img
+            src="./assets/img/icons/footer/im2.png"
+            alt="face"
+            style="margin-right: 25px"
+          /><img
+            src="./assets/img/icons/footer/inst.png"
+            alt="inst"
+            style="margin-right: 25px"
+          />
+        </div> -->
+      </div>
+      <div style="text-align: center; margin-top: 50px; padding-bottom: 50px">
+        © Алматы 2023
+      </div>
+    </footer>
+    <div class="invise-form" id="inviseF">
+      <div class="invise-form-inner">
+        <form method="POST" action="./mail.php">
+          <p class="form-title">Заполните заявку</p>
+          <p class="form-sub">
+            и наши менеджеры позвонят вам в ближайшее время
+          </p>
+          <br /><br />
+          <label>Мобильный телефон*</label>
+          <input id="tel" type="tel" placeholder="Телефоны" /><br />
+          <label>Электронная почта</label><br />
+          <input type="text" placeholder="Почта" /><br />
+          <input id="sub" type="submit" disabled="true" />
+        </form>
+      </div>
+      <div class="invise-form-black" id="darkBottom"></div>
+    </div>
+    <script
+      src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU"
+      type="text/javascript"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/calculator.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+          el: ".swiper-pagination",
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+        // And if we need scrollbar
+        /*  scrollbar: {
+    el: ".swiper-scrollbar",
+  }, */
+        autoplay: {
+          delay: 3000,
+        },
+      });
+    </script>
+    <!--JQuery-->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"
+      integrity="sha512-O/nUTF5mdFkhEoQHFn9N5wmgYyW323JO6v8kr6ltSRKriZyTr/8417taVWeabVS4iONGk2V444QD0P2cwhuTkg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"
+      integrity="sha512-gcJC1xwMm5HMtlC2ae0cGOahflmuPCLcdSmpFB+lzZQuhygsbAXYkk7crLQEN298olhaVRQXv+u0r03hCUiTUg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"
+      integrity="sha512-EanukVTZc4W9tUCLnDl069Izidg49PcNRKO1upLzKt9ajq66i+bXOtlzXcIbRhb6vVEGF6BCc8wQi5T1ztCpTQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.4/jquery.inputmask.bundle.min.js"
+      integrity="sha512-vSvnBTSXfskF+EK2knMp6uB6r/qErJYHBMbuDZb7qzQWGlciqdF3vH1Hia0GSf/WmcFgAQu8HPR05SYsoElYvw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!--JQuery-->
+    <script>
+      ymaps?.ready(init);
+    </script>
+    <script>
+      var phoneLength;
+      $(document).ready(function () {
+        $("#tel").inputmask("+7(999)999-99-99"); // без нее не работает input маска =(
+        $("#time-notice").hide();
+        phoneLength = 10;
+      });
+      $("#tel").on("input", () => {
+        if ($("#tel").val().split("")[$("#tel").val().length - 1] == "_") {
+          $("#sub").attr("disabled", true);
+        } else {
+          $("#sub").removeAttr("disabled");
+        }
+      });
+    </script>
+  </body>
+</html>

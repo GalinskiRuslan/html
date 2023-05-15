@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
+    <title>Новости</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="modal-city" id="modal-city">
+        <div class="modal-city-content" id="chngeCity">
+          <div>
+            <p>Ваш город <span id="yourCity"></span> ?</p>
+          </div>
+          <div class="modal-btns">
+            <button id="cityYes">Да</button
+            ><button class="no" id="cityNo">Нет</button>
+          </div>
+        </div>
+        <div class="modal-city-list" id="cityList">
+          <button class="closemodal-btn" onclick="closeModal()">X</button>
+          <p>Укажите из какого вы города или населённого пункта</p>
+          <ul>
+            <li class="cityes">Алматы</li>
+            <li class="cityes">Астана</li>
+            <li class="cityes">Шымкент</li>
+          </ul>
+        </div>
+        <div class="city_overlay" id="dark-back"></div>
+      </div>
+      <header>
+        <nav>
+          <div class="header-flex">
+            <a href="./index.html"
+              ><img
+                class="header-logo"
+                src="./assets/img/Orqenlogo1.png"
+                alt="logo"
+            /></a>
+            <div class="header-geo" id="geoBTN">
+              <img src="./assets/img/location-outline.png" />
+              <span id="geo"></span>
+              <div class="city-list"></div>
+            </div>
+          </div>
+
+          <ul class="header-flex nav-links">
+            <li><a href="./index.html">Главная</a></li>
+            <li><a href="./about.html">О нас</a></li>
+            <li><a href="./product.html">Продукты</a></li>
+            <li><a href="./news.html" class="active">Новости</a></li>
+            <li><a href="./help.html">Помощь</a></li>
+          </ul>
+
+          <div class="localization-btns">
+            <!--    <button class="active">RU</button>
+            <button>KZ</button> -->
+          </div>
+        </nav>
+      </header>
+      <div class="header-mob text-end">
+        <button id="menubtn" class="mob-menu-btn">
+          <img src="./assets/img/icons/icons8-menu-48.png" />
+        </button>
+        <div class="menu-items" id="menuItems">
+          <a href="index.html">
+            <img class="menu-items-logo" src="./assets/img/Orqenlogo1.png" />
+          </a>
+          <div class="menu-item">
+            <ul>
+              <ul class="nav-links-mob">
+                <li><a href="./index.html">Главная</a></li>
+                <li><a href="./about.html">О нас</a></li>
+                <li><a href="./product.html">Продукты</a></li>
+                <li><a href="./news.html">Новости</a></li>
+                <li><a href="./help.html">Помощь</a></li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+        <div class="burger-menu_overlay" id="darkMenu"></div>
+      </div>
+    </div>
+    <div class="contacts-container">
+      <h2 class="contacts-title">Новости</h2>
+
+      <div class="news-card inNews">
+        <img
+          src="./assets/img/news/мы открылись 135.jpg"
+          style="
+            border-radius: 30px;
+            margin-left: 19px;
+            margin-top: 15px;
+            width: 90%;
+          "
+          alt="img"
+          class="news-img"
+        />
+        <div>
+          <p class="news-data">12.05.2023</p>
+          <p class="news-subtitle">Открытие проекта Orqen</p>
+          <p class="news-text">
+            Компания PROcredit рада сообщить о открытии проекта Orqen и
+            готовности начать работу с малым и средним бизнесом!
+          </p>
+          <a href="./news/testNews.html"
+            ><button class="money-btn" style="margin-left: 20px">
+              Подробнее
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="fast-container">
+      <div>
+        <h4>Быстрый и удобный кредит</h4>
+        <p>
+          Мы гарантируем быстрое одобрение вашей заявки на кредит, чтобы вы
+          могли получить деньги в течение нескольких дней. Вы можете получить
+          кредит без обеспечения, что поможет вам избежать рисков, связанных с
+          потерей имущества
+        </p>
+        <button class="money-btn" onclick="openF()">Получить</button>
+      </div>
+      <img src="./assets/img/bank.png" alt="bank" />
+    </div>
+    <div class="contacts-container">
+      <h4 class="contacts-title">Контакты</h4>
+      <div class="flex">
+        <div class="contacts-card">
+          <img src="./assets/img/icons/greenphone.png" />
+          <p><a href="tel:+7 771-713-90-02">+7 771-713-90-02</a></p>
+        </div>
+        <!-- <div class="contacts-card">
+          <img src="./assets/img/icons/green-geo.png" />
+          <p>
+            <a
+              target="_blank"
+              href="https://www.google.com/maps/place/%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%9A%D1%83%D0%BD%D0%B0%D0%B5%D0%B2%D0%B0+38,+%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B+050000/43.2650006,76.9482746,18.5z/data=!4m6!3m5!1s0x38836e9bbef2ad63:0x894ae3f2b8acd0f6!8m2!3d43.2648998!4d76.948732!16s%2Fg%2F11ts_xsnvn?hl=ru-KG"
+              >г.Алматы ул. Кунаева 38 БЦ “Жар су”</a
+            >
+          </p>
+        </div> -->
+        <div class="contacts-card">
+          <img src="./assets/img/icons/greenmail.png" />
+          <p><a href="mailto:info@orqen.kz">info@orqen.kz</a></p>
+        </div>
+      </div>
+      <div class="map">
+        <div id="map" class="yanmap" style="width: 100%"></div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-container">
+        <div>
+          <a href="#"
+            ><img
+              class="header-logo"
+              src="./assets/img/Orqenlogo1.png"
+              alt="logo"
+          /></a>
+          <div>
+            <ul class="footer-list">
+              <li><a href="./about.html">О нас</a></li>
+              <li><a href="./product.html">Продукты</a></li>
+              <li><a href="./news.html">Новости</a></li>
+              <li><a href="./help.html">Помощь</a></li>
+            </ul>
+            <p class="footer-text">
+              ТОО «МФО «PROcredit», Лицензия на осуществление микрофинансовой
+              деятельности<br />
+              No 02.23.0002. М от 02.02.2023 года, выдана Управлением
+              региональных<br />
+              представителей в городе Алматы Агентства Республики Казахстан<br />
+              по регулированию и развитию финансового рынка
+            </p>
+          </div>
+        </div>
+        <!--  <div class="footer-right">
+          <p>Мы в соц сетях</p>
+          <img
+            src="./assets/img/icons/footer/twit.png"
+            alt="tvitter"
+            style="margin-right: 25px"
+          /><img
+            src="./assets/img/icons/footer/im2.png"
+            alt="face"
+            style="margin-right: 25px"
+          /><img
+            src="./assets/img/icons/footer/inst.png"
+            alt="inst"
+            style="margin-right: 25px"
+          />
+        </div> -->
+      </div>
+      <div style="text-align: center; margin-top: 50px; padding-bottom: 50px">
+        © Алматы 2023
+      </div>
+    </footer>
+    <div class="invise-form" id="inviseF">
+      <div class="invise-form-inner">
+        <form method="POST" action="./mail.php">
+          <p class="form-title">Заполните заявку</p>
+          <p class="form-sub">
+            и наши менеджеры позвонят вам в ближайшее время
+          </p>
+          <br /><br />
+          <label>Мобильный телефон*</label>
+          <input id="tel" type="tel" placeholder="Телефоны" /><br />
+          <label>Электронная почта</label><br />
+          <input type="text" placeholder="Почта" /><br />
+          <input id="sub" type="submit" disabled="true" />
+        </form>
+      </div>
+      <div class="invise-form-black" id="darkBottom"></div>
+    </div>
+  </body>
+  <script
+    src="http://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU"
+    type="text/javascript"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="./scripts/index.js"></script>
+  <!--JQuery-->
+  <script>
+    ymaps?.ready(init);
+  </script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"
+    integrity="sha512-O/nUTF5mdFkhEoQHFn9N5wmgYyW323JO6v8kr6ltSRKriZyTr/8417taVWeabVS4iONGk2V444QD0P2cwhuTkg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"
+    integrity="sha512-gcJC1xwMm5HMtlC2ae0cGOahflmuPCLcdSmpFB+lzZQuhygsbAXYkk7crLQEN298olhaVRQXv+u0r03hCUiTUg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"
+    integrity="sha512-EanukVTZc4W9tUCLnDl069Izidg49PcNRKO1upLzKt9ajq66i+bXOtlzXcIbRhb6vVEGF6BCc8wQi5T1ztCpTQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.4/jquery.inputmask.bundle.min.js"
+    integrity="sha512-vSvnBTSXfskF+EK2knMp6uB6r/qErJYHBMbuDZb7qzQWGlciqdF3vH1Hia0GSf/WmcFgAQu8HPR05SYsoElYvw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <!--JQuery-->
+  <script>
+    var phoneLength;
+    $(document).ready(function () {
+      $("#tel").inputmask("+7(999)999-99-99"); // без нее не работает input маска =(
+      $("#time-notice").hide();
+      phoneLength = 10;
+    });
+    $("#tel").on("input", () => {
+      if ($("#tel").val().split("")[$("#tel").val().length - 1] == "_") {
+        $("#sub").attr("disabled", true);
+      } else {
+        $("#sub").removeAttr("disabled");
+      }
+    });
+  </script>
+</html>
