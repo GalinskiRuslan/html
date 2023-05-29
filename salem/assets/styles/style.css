@@ -86,6 +86,7 @@ body {
   position: fixed;
   width: 45px;
   cursor: pointer;
+  z-index: 999;
 }
 
 .burger:before,
@@ -109,11 +110,14 @@ body {
   transform: scale(0);
 }
 .header-nav-mob {
-  position: absolute;
+  position: fixed;
   right: 5%;
   top: 10%;
   display: none;
   font-size: 1rem;
+  padding: 35px;
+  background: linear-gradient(104.83deg, #8b39ff -2.14%, #09929b 100.36%);
+  border-radius: 20px;
 }
 .header-nav__list-mob {
   list-style: none;
@@ -146,6 +150,7 @@ body {
   border: 1px solid #d9d9d9;
   border-radius: 100%;
   background-color: #ffffff;
+  transition: 0.5s;
 }
 .navigation li.isActive::before {
   content: "";
@@ -157,6 +162,7 @@ body {
   border-radius: 100%;
   background-color: #ffffff;
   margin-left: -5px;
+  transition: 0.5s;
 }
 .container {
   max-width: var(--mw);
@@ -179,6 +185,7 @@ body {
   display: flex;
   flex-direction: column;
   top: 30%;
+  transform: translateX(2000px);
   /*   left: 15%; */
   /* text-align: center; */
   opacity: 0;
@@ -196,9 +203,21 @@ body {
   background-color: #ffffff;
   margin-left: 0;
 }
+.content-item.white.last {
+  width: 95%;
+  height: 50%;
+  top: 10%;
+  padding-top: 100px;
+  position: absolute;
+  padding-left: 12%;
+  left: 0;
+  background-color: #ffffff;
+  margin-left: 0;
+}
 .content-item.isActive {
   opacity: 1;
   transition: 0.8s;
+  transform: translateX(0px);
 }
 .second-item {
   display: flex;
@@ -219,6 +238,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-left: 32px;
+  transition: 0.7s;
 }
 .second-item__titles li {
   font-weight: 800;
@@ -231,6 +251,7 @@ body {
   margin-left: 32px;
   margin-top: 25px;
   cursor: pointer;
+  transition: 0.7s;
 }
 .second-item__titles li {
   font-weight: 800;
@@ -440,6 +461,131 @@ input[type="text"] {
 }
 input[type="text"]:focus {
   outline: none;
+}
+.footer {
+  position: absolute;
+  bottom: -60%;
+  left: 7%;
+  width: 95%;
+}
+.footer p {
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 29px;
+  color: #ffffff;
+}
+.footer a {
+  text-decoration: none;
+  margin-right: 15%;
+}
+.footer-item {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+summary {
+  list-style: none;
+  font-weight: 800;
+  font-size: 1.2rem;
+  background: linear-gradient(4.83deg, #8b39ff -2.14%, #09929b 100.36%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 20px 0;
+}
+.mobile-container {
+  display: none;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.mobile-container h2,
+.mobile-container h3 {
+  font-size: 1.5rem;
+}
+.mobile-container p {
+  font-size: 1rem;
+}
+.mobile-first {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mobile-first p {
+  margin-top: 50px;
+}
+.mobile-video {
+  margin-bottom: 70px;
+  margin-top: 30px;
+  text-align: center;
+}
+.mobile-second {
+  margin-bottom: 95px;
+}
+.mobilde-three {
+  margin-bottom: 80px;
+  background-color: #ffffff;
+}
+.mobilde-three h3,
+.mobilde-three p {
+  color: #000000;
+}
+.mobilde-three div {
+  text-align: center;
+}
+.mobile-fourth {
+  margin-bottom: 70px;
+}
+.mobile-fourth ol {
+  font-size: 1rem;
+}
+.mobile-fourth li {
+  margin: 10px 0;
+}
+.mobile-fifth div {
+  text-align: center;
+  margin: 10px 0;
+}
+.mobile-fifth {
+  padding: 40px 0;
+  margin-bottom: 55px;
+  background-color: #ffffff;
+}
+.mobile-fifth h3 {
+  color: #000000;
+}
+.mobile-sexth {
+  background: linear-gradient(104.83deg, #8b39ff -2.14%, #09929b 100.36%);
+  padding: 40px 0;
+  margin-bottom: 60px;
+}
+
+.mobile-seventh {
+  background-color: #ffffff;
+  padding: 70px 0;
+}
+.mobile-seventh h3,
+.mobile-seventh p {
+  color: #000000;
+}
+.mobile-seventh form {
+  margin-top: 50px;
+}
+.mobile-seventh button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: 50px;
+  position: relative;
+}
+.mobile-footer {
+  margin-top: 50px;
+  text-align: center;
+}
+.mobile-footer a {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0 20px;
 }
 /* Анимации */
 /* Первый блок */
@@ -873,10 +1019,23 @@ input[type="text"]:focus {
   }
 }
 @media screen and (max-width: 720px) {
+  body {
+    height: 100%;
+  }
   .navigation {
     display: none;
   }
   .content-item {
     top: 10%;
+  }
+  .container {
+    display: none;
+  }
+  .mobile-container {
+    display: block;
+  }
+  video {
+    width: 70%;
+    text-align: center;
   }
 }

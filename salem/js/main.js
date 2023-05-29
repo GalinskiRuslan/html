@@ -163,3 +163,26 @@ function changeClassesForAnimation(elements, index, newIndex) {
 }
 
 startApp();
+
+const tabs = document.querySelectorAll(".change");
+const tabsContent = document.querySelectorAll(".second-item__content");
+let oldActive, oldActiveview;
+
+tabs?.forEach((element, index) => {
+  if (element.classList.contains("active")) {
+    oldActive = element;
+    oldActiveview = tabsContent[index];
+  }
+  element.addEventListener("click", () => {
+    if (element.classList.contains("active")) {
+      return;
+    } else {
+      oldActive.classList.remove("active");
+      element.classList.add("active");
+      oldActiveview.classList.remove("active");
+      tabsContent[index].classList.add("active");
+      oldActive = element;
+      oldActiveview = tabsContent[index];
+    }
+  });
+});
