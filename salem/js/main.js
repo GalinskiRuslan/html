@@ -3,10 +3,12 @@ const mobMenu = document.getElementById("mobMenu");
 burger.addEventListener("click", () => {
   if (burger.classList.length > 1) {
     burger.classList.remove("open");
-    mobMenu.style.display = "none";
+    mobMenu.classList.remove("open");
+    /*  mobMenu.style.display = "none"; */
   } else {
     burger.classList.add("open");
-    mobMenu.style.display = "block";
+    /*  mobMenu.style.display = "block"; */
+    mobMenu.classList.add("open");
   }
 });
 
@@ -158,12 +160,14 @@ function changeClassesForAnimation(elements, index, newIndex) {
   elements[index].classList.remove(isActive);
   const classNameToLeaveAnimation = index > newIndex ? hideUp : hideDown;
   addClassAndRemoveAfterTimeout(elements[index], classNameToLeaveAnimation);
+  addClassAndRemoveAfterTimeout(
+    elements[newIndex],
+    index > newIndex ? "up" : "down"
+  );
   elements[newIndex].classList.add(isActive);
   updateNavigation(newIndex);
 }
-
 startApp();
-
 const tabs = document.querySelectorAll(".change");
 const tabsContent = document.querySelectorAll(".second-item__content");
 let oldActive, oldActiveview;
@@ -186,3 +190,32 @@ tabs?.forEach((element, index) => {
     }
   });
 });
+const dark = document.getElementById("dark");
+const images = document.querySelectorAll(".sixth-item__doc");
+let openIndex;
+dark.addEventListener(
+  "click",
+  () => (
+    (dark.style.display = "none"),
+    images[openIndex].classList.remove("open"),
+    console.log(openIndex)
+  )
+);
+images.forEach((el, index) => {
+  el.addEventListener("click", () => {
+    /*  if (openIndex != undefined) {
+      images[openIndex].classList.remove("open");
+    } */
+    console.log(el.classList.contains("open"));
+    if (el.classList.contains("open")) {
+      el.classList.remove("open");
+    } else {
+      (openIndex = index) /* , (dark.style.display = "block") */,
+        el.classList.add("open");
+    }
+  });
+});
+/* function loopImg(img){
+
+
+} */
